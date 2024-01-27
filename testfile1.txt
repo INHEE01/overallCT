@@ -1,0 +1,20 @@
+https://steamcommunity.com/profiles/76561198449754773/games/?tab=all&sort=playtime
+이 URL은 Steam 이란 사이트인데, 한 유저가 플레이했던 게임들과 그 게임들에 대한 플레이 시간을 나타내주는 곳이야.
+
+이 URL 에서 유저의 이름, 그리고 플레이했던 게임 리스트에서 플레이했던 게임들의 이름과 각각의 게임들에 대해 기록된 플레이타임을 파이썬으로 크롤링코드를 짜줘. 
+
+너가 쉽게 찾기 위해 html 태그 설명해줄게.
+유저의 이름 : a class="whiteLink persona_name_text_content"
+플레이했던 게임 리스트 : div class="gameslistitems_List_3tY9v Panel Focusable"
+플레이했던 게임들의 이름 : a class="gameslistitems_GameName_22awl"
+각각의 게임들에 대해 기록된 플레이타임에 대한 정보 : span class="gameslistitems_Hours_26nl3"
+
+여기까지 크롤링에 필요한 html 태그 설명이야.
+
+
+유저의 이름에 대한 정보는 <a class="whiteLink persona_name_text_content"> </a> 여기 있고, 
+
+플레이했던 게임 리스트에 대한 정보는 <div class="gameslistitems_List_3tY9v Panel Focusable> <div> 여기 안에 들어있으며 
+플레이 했던 게임들의 이름은 <a class="gameslistitems_GameName_22awl"> </a> 여기에 있고, 
+각각의 게임들에 대해 기록된 플레이타임에 대한 정보는 <span class="gameslistitems_Hours_26nl3"> </span> 여기에 있어.
+
