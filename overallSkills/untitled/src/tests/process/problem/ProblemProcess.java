@@ -3,6 +3,15 @@ package tests.process.problem;
 import java.util.*;
 
 public class ProblemProcess {
+    private int[] priorities;
+    private int location;
+    public ProblemProcess() {
+
+    }
+    public ProblemProcess(int[] priorities, int location) {
+        this.priorities = priorities;
+        this.location = location;
+    }
     public int solution(int[] priorities, int location) {
         PriorityQueue<Integer> p = new PriorityQueue<>(Collections.reverseOrder()); // 선입선출 큐. 가장 큰 값부터 나오게 됨. PriorityQueue 는 Heap으로 구성된 이진트리 구조이다. 시간복잡도는 O(NlogN)
         int result=0;
