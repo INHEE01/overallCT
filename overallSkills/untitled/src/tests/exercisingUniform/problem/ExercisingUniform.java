@@ -5,6 +5,7 @@ public class ExercisingUniform {
     public int solution(int n, int[] lost, int[] reserve) {
         int[] uniformCount = new int[n+2]; // 체육복을 가지고 있는 상태를 나타내는 배열. -1 이면 체육복 없음, 0 이면 체육복 있음, 1이면 여분의 체육복 있음
         // 람다식을 이용하여 배열 초기화. 여분의 체육복이 있었는데 잃어버리는 경우도 있기에 if else 사용 x
+        // 람다식을 이용할 때, (s -> s==num) 에서 parameter num 자리에 변수(여기서 기준은 idx)가 오면 에러가 발생하며, parameter 값은 반드시 정적인 값이어야 한다. Variable used in lambda expression should be final or effectively final 참고.
         for(int idx=1; idx<=n; idx++) {
             int num = idx;
             if(Arrays.stream(lost).anyMatch(s -> s==num)) {
