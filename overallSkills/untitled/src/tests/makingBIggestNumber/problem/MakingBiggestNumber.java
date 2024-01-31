@@ -1,23 +1,29 @@
 package tests.makingBIggestNumber.problem;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class MakingBiggestNumber {
     public String solution(String number, int k) {
-        // 문자열number 의 길이만큼 순회
-        // 앞 자리 설정하기
-        int startIdx = 0;
+        Deque<Character> deque = new ArrayDeque<>();
         StringBuilder sb = new StringBuilder();
-        for(int i=0; i<number.length()-k; i++) {
-            int numMax = 0;
-            for(int j=startIdx; j<=i+k; j++) {
-                if((int)number.charAt(j)-'0' > numMax) {
-                    numMax = (int)number.charAt(j)-'0';
-                    startIdx = j+1;
-                }
+
+        for (int i = 0; i < number.length(); i++) {
+            while (!deque.isEmpty() && deque.peekLast() < number.charAt(i) && k > 0) {
+                deque.removeLast();
+                k--;
             }
-            String numtoString = Integer.toString(numMax);
-            sb.append(numtoString);
+            deque.addLast(number.charAt(i));
         }
-        String result = sb.toString();
-        return result;
+
+        while(deque.size() > number.length() - k) {
+            deque.removeLast();
+        }
+
+        while(!deque.isEmpty()) {
+            sb.append(deque.removeFirst());
+        }
+
+        return sb.toString();
     }
 }
