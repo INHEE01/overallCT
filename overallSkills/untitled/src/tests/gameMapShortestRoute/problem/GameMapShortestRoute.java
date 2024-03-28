@@ -8,7 +8,6 @@ public class GameMapShortestRoute {
         int answer = 0;
         int n = maps.length;
         int m = maps[0].length;
-
         // 이동 가능한 방향 (상,하,우,좌)
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
