@@ -3,14 +3,17 @@ package tests.MiningMinerals.problem;
 import java.util.Arrays;
 
 public class MiningMinerals {
+
     public int solution(int[] picks, String[] minerals) {
         int answer = 0;
         int idx = (int) Math.ceil((double)minerals.length / 5);
-        int[][] count = new int[idx][3];
+        int[][] count = new int[idx][3]; //
+        int picksum = 0;
+        for(int i : picks) picksum+=i*5;
+        int countsum = picksum;
 
         for(int i=0; i<idx; i++) {
             for(int j=i*5; j<Math.min((i+1)*5, minerals.length); j++) {
-
                 switch(minerals[j]) {
                     case "diamond":
                         count[i][0]++;
@@ -23,9 +26,19 @@ public class MiningMinerals {
                         break;
                 }
             }
+            countsum -= 5;
+            if(countsum == 0) {
+                countsum = -1;
+                Arrays.sort(count, (o1, o2) -> {
+                    if(o1[0] == o2[0]) {
+                        return Integer.compare(o2[1], o1[1]);
+                    }
+                    else {
+                        return Integer.compare(o2[0], o1[0]);
+                    }
+                });
+            }
         }
-        int picksum = 0;
-        for(int i : picks) picksum+=i*5;
 
         if(picksum >= minerals.length) {
             Arrays.sort(count, (o1, o2) -> {
