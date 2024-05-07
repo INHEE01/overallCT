@@ -4,6 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TheMostGivenGift {
+    // Step 1. 친구에게 index 부여
+    // Step 2. 선물을 주고 받은 기록 저장
+    // Step 3. 선물 지수 계산
+    // Step 4. i와 j의 선물을 주고 받은 개수 확인
+    // Step 5. 선물을 주고 받은 개수가 같으면 선물 지수 확인
     public int solution(String[] friends, String[] gifts) {
         int answer = 0;
         int[][] giftGraph = new int[friends.length][friends.length]; // 선물 누가 누구한테 줬는지에 대해 기록하는 배열
