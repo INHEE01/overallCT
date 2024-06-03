@@ -1,32 +1,29 @@
 package tests.numberBlock;
 
+
+
 public class Solution {
     public int[] solution(long begin, long end) {
-        int len = Long.valueOf(end-begin+1).intValue();
-        int[] answer = new int[len];
+        public int[] solution(long begin, long end) {
+            int first = (int) begin;
+            int last = (int) end;
+            int[] answer = new int[last-first+1];
 
-        int arrIdx = 0;
-        for(long i=begin; i<=end; i++) {
-            if(i == 1){
-                answer[arrIdx++] = 0;
-                continue;
-            } else {
-                answer[arrIdx++] = (int) block(i);
-            }
-        }
+            for (int i = first; i < last + 1; i++) {
+                answer[i-first] = 1;
 
-        return answer;
-    }
-
-    public long block(long n){
-        for(long i=2; i<=Math.sqrt(n); i++){
-            if(n%i == 0){
-                if(n/i > 10000000){
-                    continue;
+                for (int div = 2; div <= Math.floor(Math.sqrt(i)); div++) {
+                    if (i % div == 0 && i / div <= 10000000) {
+                        answer[i - first] = i / div;
+                        break;
+                    }
                 }
-                return n/i;
             }
+
+            if (first == 1)
+                answer[0] = 0;
+
+            return answer;
         }
-        return 1;
     }
 }
