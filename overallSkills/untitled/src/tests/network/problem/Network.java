@@ -17,6 +17,8 @@ public class Network {
                 dfs(i, visited, computers);
             }
         }
+
+        return answer;
     }
 
     public void dfs(int n, boolean[] viisted, int[][] computers) {

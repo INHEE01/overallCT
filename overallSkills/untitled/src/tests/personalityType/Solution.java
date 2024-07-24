@@ -1,4 +1,4 @@
-package personalityType;
+package tests.personalityType;
 
 import java.util.*;
 
