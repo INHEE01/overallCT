@@ -1,4 +1,4 @@
-package carpet;
+package tests.carpet;
 
 class Solution {
     public int[] solution(int brown, int yellow) {
