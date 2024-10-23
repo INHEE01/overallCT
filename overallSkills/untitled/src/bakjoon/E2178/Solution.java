@@ -16,6 +16,7 @@ public class Solution {
     public static int[] dys = {0, 0, 1, -1};
     // 전역 변수 선언
     // bfs, 유효한 범위 확인 & 방문하지 않은 곳 체크 필요.
+    // dx dy 설정
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
